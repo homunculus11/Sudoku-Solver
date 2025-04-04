@@ -2,19 +2,13 @@ class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
 
-    // O(n3) approach for horizontal lines check in board
+    // O(n3) approach for horizontal and vertical lines check in board
     for(int i=0; i<9; i++)
         for(int j=0; j<8; j++)
-            for(int k=j+1; k<9; k++)
-                if(board[i][j] == board[i][k] && board[i][j]!='.')
+            for(int k=j+1; k<9; k++){
+                if( (board[i][j] == board[i][k] && board[i][j]!='.') || (board[j][i] == board[k][i] && board[j][i]!='.') )
                     return false;
-
-    // O(n3) approach for vertical lines check in board
-    for(int i=0; i<9; i++)
-        for(int j=0; j<8; j++)
-            for(int k=j+1; k<9; k++)
-                if(board[j][i] == board[k][i] && board[j][i]!='.')
-                    return false;
+                    }
 
     for (int i=0; i<7; i+=3)          //goes from square to square 3x3
         for(int j=0; j<7; j+=3){      //goes from square to square 3x3
