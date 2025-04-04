@@ -5,34 +5,34 @@ public:
     // O(n3) approach for horizontal lines check in board
     for(int i=0; i<9; i++)
         for(int j=0; j<8; j++)
-            for(int k=j+1; k<8; k++)
+            for(int k=j+1; k<9; k++)
                 if(board[i][j] == board[i][k] && board[i][j]!='.')
                     return false;
 
     // O(n3) approach for vertical lines check in board
     for(int i=0; i<9; i++)
         for(int j=0; j<8; j++)
-            for(int k=j+1; k<8; k++)
-                if(board[j][i] == board[k][i] && board[j][i]!=".")
+            for(int k=j+1; k<9; k++)
+                if(board[j][i] == board[k][i] && board[j][i]!='.')
                     return false;
 
     for (int i=0; i<7; i+=3)          //goes from square to square 3x3
         for(int j=0; j<7; j+=3){      //goes from square to square 3x3
-            if( (board[i][j]!=".") && (board[i][j]==board[i][j+1] || board[i][j]==board[i][j+2] || board[i][j]==board[i+1][j] || board[i][j]==board[i+1][j+1] || board[i][j]==board[i+1][j+2] || board[i][j]==board[i+1][j+2] || board[i][j]==board[i+2][j] || board[i][j]==board[i+2][j+1] || board[i][j]==board[i+2][j+2]) )
+            if( (board[i][j]!='.') && (board[i][j]==board[i][j+1] || board[i][j]==board[i][j+2] || board[i][j]==board[i+1][j] || board[i][j]==board[i+1][j+1] || board[i][j]==board[i+1][j+2] || board[i][j]==board[i+1][j+2] || board[i][j]==board[i+2][j] || board[i][j]==board[i+2][j+1] || board[i][j]==board[i+2][j+2]) )
                 return false;
-            else if ( (board[i][j+1]!=".") && (board[i][j+1]==board[i][j+2] || board[i][j+1]==board[i+1][j] || board[i][j+1]==board[i+1][j+1] || board[i][j+1]==board[i+1][j+2] || board[i][j+1]==board[i+1][j+2] || board[i][j+1]==board[i+2][j] || board[i][j+1]==board[i+2][j+1] || board[i][j+1]==board[i+2][j+2]) )
+            else if ( (board[i][j+1]!='.') && (board[i][j+1]==board[i][j+2] || board[i][j+1]==board[i+1][j] || board[i][j+1]==board[i+1][j+1] || board[i][j+1]==board[i+1][j+2] || board[i][j+1]==board[i+1][j+2] || board[i][j+1]==board[i+2][j] || board[i][j+1]==board[i+2][j+1] || board[i][j+1]==board[i+2][j+2]) )
                 return false;
-            else if ( (board[i][j+2]!=".") && (board[i][j+2]==board[i+1][j] || board[i][j+2]==board[i+1][j+1] || board[i][j+2]==board[i+1][j+2] || board[i][j+2]==board[i+1][j+2] || board[i][j+2]==board[i+2][j] || board[i][j+2]==board[i+2][j+1] || board[i][j+2]==board[i+2][j+2]) )
+            else if ( (board[i][j+2]!='.') && (board[i][j+2]==board[i+1][j] || board[i][j+2]==board[i+1][j+1] || board[i][j+2]==board[i+1][j+2] || board[i][j+2]==board[i+1][j+2] || board[i][j+2]==board[i+2][j] || board[i][j+2]==board[i+2][j+1] || board[i][j+2]==board[i+2][j+2]) )
                 return false;
-            else if ( (board[i+1][j]!=".") && (board[i+1][j]==board[i+1][j+1] || board[i+1][j]==board[i+1][j+2] || board[i+1][j]==board[i+1][j+2] || board[i+1][j]==board[i+2][j] || board[i+1][j]==board[i+2][j+1] || board[i+1][j]==board[i+2][j+2]) )
+            else if ( (board[i+1][j]!='.') && (board[i+1][j]==board[i+1][j+1] || board[i+1][j]==board[i+1][j+2] || board[i+1][j]==board[i+1][j+2] || board[i+1][j]==board[i+2][j] || board[i+1][j]==board[i+2][j+1] || board[i+1][j]==board[i+2][j+2]) )
                 return false;
-            else if ( (board[i+1][j+1]!=".") && (board[i+1][j+1]==board[i+1][j+2] || board[i+1][j+1]==board[i+2][j] || board[i+1][j+1]==board[i+2][j+1] || board[i+1][j+1]==board[i+2][j+2]) )
+            else if ( (board[i+1][j+1]!='.') && (board[i+1][j+1]==board[i+1][j+2] || board[i+1][j+1]==board[i+2][j] || board[i+1][j+1]==board[i+2][j+1] || board[i+1][j+1]==board[i+2][j+2]) )
                 return false;
-            else if ( (board[i+1][j+2]!=".") && (board[i+1][j+2]==board[i+2][j] || board[i+1][j+2]==board[i+2][j+1] || board[i+1][j+2]==board[i+2][j+2]) )
+            else if ( (board[i+1][j+2]!='.') && (board[i+1][j+2]==board[i+2][j] || board[i+1][j+2]==board[i+2][j+1] || board[i+1][j+2]==board[i+2][j+2]) )
                 return false;
-            else if ( (board[i+2][j]!=".") && (board[i+2][j]==board[i+2][j+1] || board[i+2][j]==board[i+2][j+2]) )
+            else if ( (board[i+2][j]!='.') && (board[i+2][j]==board[i+2][j+1] || board[i+2][j]==board[i+2][j+2]) )
                 return false;
-            else if (board[i+2][j+1]!="." && board[i+2][j+1]==board[i+2][j+2])
+            else if (board[i+2][j+1]!='.' && board[i+2][j+1]==board[i+2][j+2])
                 return false;
         }
     
