@@ -9,7 +9,7 @@ initialSudoku = [[4, 0, 0, 3, 0, 8, 0, 0, 6],
                  [0, 0, 9, 0, 0, 0, 0, 0, 0],
                  [5, 0, 0, 2, 0, 7, 0, 0, 1]]
 
-def userValues():
+def unsolvedSudoku():
     global initialSudoku
     
     print("\033[31m─────────────────────────────────────────────────────────────────────────\033[0m")
@@ -41,4 +41,4 @@ def userValues():
     # print("—————————————————————————————————————")
     print(initialSudoku)
 
-userValues()
+unsolvedSudoku()
