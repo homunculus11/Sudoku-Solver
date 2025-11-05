@@ -25,6 +25,7 @@ initialSudoku = [[0, 0, 0, 1, 8, 0, 6, 0, 0],
 
 allPosibilitiesSudoku = copy.deepcopy(initialSudoku)
 
+# Functions to print/display error messages
 def errorMessage(context):
     pass
 
@@ -42,7 +43,7 @@ def showSudoku(sudoku):
                 print("\033[31m   |   \033[0m", end="")
             else:
                 print("   |   ", end="")
-            if sudoku[i][j] == 0:
+            if sudoku[i][j] == 0 or isinstance(sudoku[i][j], list):
                 print(end=" ")
             else:
                 print(sudoku[i][j], end="")
@@ -272,7 +273,14 @@ def allPosibilities():
     if (numberOfValuesBefore != numberOfValuesAfter):
         allPosibilities()
 
+# def checkValidance(sudoku):
+#     for i in range(0, 9):
+#         for j in range(0, 8):
+#             for k in range(j+1, 9):
+#                 if (sudoku[i][j]==sudoku[i][k] and sudoku[i][j]!=0) or (sudoku[j])
+
 if __name__ == '__main__':
     showSudoku(initialSudoku)
     allPosibilities()
     print(allPosibilitiesSudoku)
+    showSudoku(allPosibilitiesSudoku)
