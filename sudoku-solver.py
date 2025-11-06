@@ -273,16 +273,23 @@ def allPosibilities():
     if (numberOfValuesBefore != numberOfValuesAfter):
         allPosibilities()
 
-# def checkValidance(sudoku):
-#     for i in range(0, 9):
-#         for j in range(0, 8):
-#             for k in range(j+1, 9):
-#                 if (sudoku[i][j]==sudoku[i][k] and sudoku[i][j]!=0) or (sudoku[j])
+def checkValidance(sudoku):
+    for i in range(0, 9):
+        for j in range(0, 8):
+            for k in range(j+1, 9):
+                if (sudoku[i][j] == sudoku[i][k] and sudoku[i][j] != 0) or (sudoku[j][i] == sudoku[k][i] and sudoku[j][i] != 0):
+                    return False
+    
+    for i in range(0, 8, 3):
+        for j in range(0, 8, 3):
+            if ((sudoku[i][j]!=0) and (sudoku[i][j]==sudoku[i][j+1] or sudoku[i][j]==sudoku[i][j+2] or sudoku[i][j]==sudoku[i+1][j] or sudoku[i][j]==sudoku[i+1][j+1] or sudoku[i][j]==sudoku[i+1][j+2] or sudoku[i][j]==sudoku[i+1][j+2] or sudoku[i][j]==sudoku[i+2][j] or sudoku[i][j]==sudoku[i+2][j+1] or sudoku[i][j]==sudoku[i+2][j+2])) or ((sudoku[i][j+1]!=0) and (sudoku[i][j+1]==sudoku[i][j+2] or sudoku[i][j+1]==sudoku[i+1][j] or sudoku[i][j+1]==sudoku[i+1][j+1] or sudoku[i][j+1]==sudoku[i+1][j+2] or sudoku[i][j+1]==sudoku[i+1][j+2] or sudoku[i][j+1]==sudoku[i+2][j] or sudoku[i][j+1]==sudoku[i+2][j+1] or sudoku[i][j+1]==sudoku[i+2][j+2])) or ((sudoku[i][j+2]!=0) and (sudoku[i][j+2]==sudoku[i+1][j] or sudoku[i][j+2]==sudoku[i+1][j+1] or sudoku[i][j+2]==sudoku[i+1][j+2] or sudoku[i][j+2]==sudoku[i+1][j+2] or sudoku[i][j+2]==sudoku[i+2][j] or sudoku[i][j+2]==sudoku[i+2][j+1] or sudoku[i][j+2]==sudoku[i+2][j+2])) or ((sudoku[i+1][j]!=0) and (sudoku[i+1][j]==sudoku[i+1][j+1] or sudoku[i+1][j]==sudoku[i+1][j+2] or sudoku[i+1][j]==sudoku[i+1][j+2] or sudoku[i+1][j]==sudoku[i+2][j] or sudoku[i+1][j]==sudoku[i+2][j+1] or sudoku[i+1][j]==sudoku[i+2][j+2])) or ((sudoku[i+1][j+1]!=0) and (sudoku[i+1][j+1]==sudoku[i+1][j+2] or sudoku[i+1][j+1]==sudoku[i+2][j] or sudoku[i+1][j+1]==sudoku[i+2][j+1] or sudoku[i+1][j+1]==sudoku[i+2][j+2])) or ((sudoku[i+1][j+2]!=0) and (sudoku[i+1][j+2]==sudoku[i+2][j] or sudoku[i+1][j+2]==sudoku[i+2][j+1] or sudoku[i+1][j+2]==sudoku[i+2][j+2])) or ((sudoku[i+2][j]!=0) and (sudoku[i+2][j]==sudoku[i+2][j+1] or sudoku[i+2][j]==sudoku[i+2][j+2])) or (sudoku[i+2][j+1]!=0 and sudoku[i+2][j+1]==sudoku[i+2][j+2]):
+                return False
+        
+    return True #still gives error
 
 if __name__ == '__main__':
     showSudoku(initialSudoku)
     allPosibilities()
     print(allPosibilitiesSudoku)
     showSudoku(allPosibilitiesSudoku)
-
-# Adding comment just so i can commit
+    print(checkValidance(initialSudoku))
