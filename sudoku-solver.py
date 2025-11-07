@@ -304,9 +304,51 @@ def checkValidance(sudoku):
         
     return True
 
+
+sudokuSolutions = []
+recursiveCondition = True
+def solveSudoku(sudoku, indexI=0, indexJ=0):
+
+    def checkCompletance():
+        for i in range(0, 9):
+            for j in range(0, 9):
+                if sudoku[i][j] == 0:
+                    return False
+        return True
+
+    # If the current number in sudoku is a value that won't change we proceed to next index
+    if not isinstance(sudoku[indexI][indexJ], list):
+        if indexJ == 8:
+            indexJ = 0
+            indexI += 1
+        else:
+            indexJ += 1
+        if indexI == 9:
+            return
+        solveSudoku(sudoku, indexI, indexJ)
+    
+    # Here should be the recursive algorithm
+    else:
+        for i in range(0, len(sudoku[indexI][indexJ])):
+            sudoku[indexI][indexJ] = sudoku[indexI][indexJ][i]
+            if checkValidance(sudoku):
+                if indexJ == 8:
+                    indexJ = 0
+                    indexI += 1
+                else:
+                    indexJ += 1
+                if checkCompletance():
+                    sudokuSolutions.append(copy.deepcopy(sudoku))
+                    return
+                if indexI != 9:
+                    solveSudoku(sudoku, indexI, indexJ)
+    
+
 if __name__ == '__main__':
     showSudoku(initialSudoku)
     allPosibilities()
     print(allPosibilitiesSudoku)
     showSudoku(allPosibilitiesSudoku)
     print(checkValidance(initialSudoku))
+    solveSudoku(initialSudoku)
+    print(sudokuSolutions)
