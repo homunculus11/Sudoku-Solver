@@ -264,6 +264,10 @@ def allPosibilities():
     if (numberOfValuesBefore != numberOfValuesAfter):
         allPosibilities()
 
+# Check all the rules of sudoku to see if the sudoku is valid
+#    Rule 1: every row shouldn't contain two or more occurences of the same number
+#    Rule 2: every column shouldn't contain two or more occurences of the same number
+#    Rule 3: every 3x3 grid shouldn't contain two or more occurences of the same number
 def checkValidance(sudoku):
     for i in range(0, 9):
         for j in range(0, 8):
