@@ -2,26 +2,26 @@ import time
 import copy
 
     #firstSudokuTest
-# initialSudoku = [[4, 0, 0, 3, 0, 8, 0, 0, 6],   
-#                  [0, 0, 0, 0, 0, 0, 3, 0, 0],
-#                  [0, 9, 0, 0, 0, 0, 8, 1, 0],
-#                  [1, 0, 2, 0, 5, 0, 6, 4, 0],
-#                  [0, 0, 0, 0, 6, 0, 0, 0, 0],
-#                  [0, 3, 4, 0, 7, 0, 9, 0, 5],
-#                  [0, 1, 7, 0, 0, 0, 0, 2, 0],
-#                  [0, 0, 9, 0, 0, 0, 0, 0, 0],
-#                  [5, 0, 0, 2, 0, 7, 0, 0, 1]]
+initialSudoku = [[4, 0, 0, 3, 0, 8, 0, 0, 6],   
+                 [0, 0, 0, 0, 0, 0, 3, 0, 0],
+                 [0, 9, 0, 0, 0, 0, 8, 1, 0],
+                 [1, 0, 2, 0, 5, 0, 6, 4, 0],
+                 [0, 0, 0, 0, 6, 0, 0, 0, 0],
+                 [0, 3, 4, 0, 7, 0, 9, 0, 5],
+                 [0, 1, 7, 0, 0, 0, 0, 2, 0],
+                 [0, 0, 9, 0, 0, 0, 0, 0, 0],
+                 [5, 0, 0, 2, 0, 7, 0, 0, 1]]
 
     #secondSudokuTest
-initialSudoku = [[0, 0, 0, 1, 8, 0, 6, 0, 0],
-                 [0, 0, 7, 9, 0, 0, 0, 0, 2],
-                 [0, 6, 1, 0, 0, 0, 0, 3, 0],
-                 [9, 1, 0, 0, 0, 0, 0, 2, 0],
-                 [8, 0, 0, 5, 0, 0, 3, 0, 4],
-                 [0, 0, 3, 0, 0, 0, 0, 5, 7],
-                 [0, 0, 2, 0, 0, 0, 0, 5, 8],
-                 [6, 0, 0, 0, 0, 9, 7, 0, 0],
-                 [0, 0, 8, 0, 5, 2, 0, 0, 0]]
+# initialSudoku = [[0, 0, 0, 1, 8, 0, 6, 0, 0],
+#                  [0, 0, 7, 9, 0, 0, 0, 0, 2],
+#                  [0, 6, 1, 0, 0, 0, 0, 3, 0],
+#                  [9, 1, 0, 0, 0, 0, 0, 2, 0],
+#                  [8, 0, 0, 5, 0, 0, 3, 0, 4],
+#                  [0, 0, 3, 0, 0, 0, 0, 5, 7],
+#                  [0, 0, 2, 0, 0, 0, 0, 5, 8],
+#                  [6, 0, 0, 0, 0, 9, 7, 0, 0],
+#                  [0, 0, 8, 0, 5, 2, 0, 0, 0]]
 
 allPosibilitiesSudoku = copy.deepcopy(initialSudoku)
 
@@ -282,10 +282,32 @@ def checkValidance(sudoku):
     
     for i in range(0, 8, 3):
         for j in range(0, 8, 3):
-            if ((sudoku[i][j]!=0) and (sudoku[i][j]==sudoku[i][j+1] or sudoku[i][j]==sudoku[i][j+2] or sudoku[i][j]==sudoku[i+1][j] or sudoku[i][j]==sudoku[i+1][j+1] or sudoku[i][j]==sudoku[i+1][j+2] or sudoku[i][j]==sudoku[i+1][j+2] or sudoku[i][j]==sudoku[i+2][j] or sudoku[i][j]==sudoku[i+2][j+1] or sudoku[i][j]==sudoku[i+2][j+2])) or ((sudoku[i][j+1]!=0) and (sudoku[i][j+1]==sudoku[i][j+2] or sudoku[i][j+1]==sudoku[i+1][j] or sudoku[i][j+1]==sudoku[i+1][j+1] or sudoku[i][j+1]==sudoku[i+1][j+2] or sudoku[i][j+1]==sudoku[i+1][j+2] or sudoku[i][j+1]==sudoku[i+2][j] or sudoku[i][j+1]==sudoku[i+2][j+1] or sudoku[i][j+1]==sudoku[i+2][j+2])) or ((sudoku[i][j+2]!=0) and (sudoku[i][j+2]==sudoku[i+1][j] or sudoku[i][j+2]==sudoku[i+1][j+1] or sudoku[i][j+2]==sudoku[i+1][j+2] or sudoku[i][j+2]==sudoku[i+1][j+2] or sudoku[i][j+2]==sudoku[i+2][j] or sudoku[i][j+2]==sudoku[i+2][j+1] or sudoku[i][j+2]==sudoku[i+2][j+2])) or ((sudoku[i+1][j]!=0) and (sudoku[i+1][j]==sudoku[i+1][j+1] or sudoku[i+1][j]==sudoku[i+1][j+2] or sudoku[i+1][j]==sudoku[i+1][j+2] or sudoku[i+1][j]==sudoku[i+2][j] or sudoku[i+1][j]==sudoku[i+2][j+1] or sudoku[i+1][j]==sudoku[i+2][j+2])) or ((sudoku[i+1][j+1]!=0) and (sudoku[i+1][j+1]==sudoku[i+1][j+2] or sudoku[i+1][j+1]==sudoku[i+2][j] or sudoku[i+1][j+1]==sudoku[i+2][j+1] or sudoku[i+1][j+1]==sudoku[i+2][j+2])) or ((sudoku[i+1][j+2]!=0) and (sudoku[i+1][j+2]==sudoku[i+2][j] or sudoku[i+1][j+2]==sudoku[i+2][j+1] or sudoku[i+1][j+2]==sudoku[i+2][j+2])) or ((sudoku[i+2][j]!=0) and (sudoku[i+2][j]==sudoku[i+2][j+1] or sudoku[i+2][j]==sudoku[i+2][j+2])) or (sudoku[i+2][j+1]!=0 and sudoku[i+2][j+1]==sudoku[i+2][j+2]):
+
+            currentValues = []
+
+            if sudoku[i][j]!=0:
+                currentValues.append(sudoku[i][j])
+            if sudoku[i][j+1]!=0:
+                currentValues.append(sudoku[i][j+1])
+            if sudoku[i][j+2]!=0:
+                currentValues.append(sudoku[i][j+2])
+            if sudoku[i+1][j]!=0:
+                currentValues.append(sudoku[i+1][j])
+            if sudoku[i+1][j+1]!=0:
+                currentValues.append(sudoku[i+1][j+1])
+            if sudoku[i+1][j+2]!=0:
+                currentValues.append(sudoku[i+1][j+2])
+            if sudoku[i+2][j]!=0:
+                currentValues.append(sudoku[i+2][j])
+            if sudoku[i+2][j+1]!=0:
+                currentValues.append(sudoku[i+2][j+1])
+            if sudoku[i+2][j+2]!=0:
+                currentValues.append(sudoku[i+2][j+2])
+
+            if len(currentValues)!=len(set(currentValues)): #Checks if the length of list changed after removing the duplicates
                 return False
         
-    return True #still gives error
+    return True
 
 if __name__ == '__main__':
     showSudoku(initialSudoku)
