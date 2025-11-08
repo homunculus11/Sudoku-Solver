@@ -272,7 +272,7 @@ def checkValidance(sudoku):
     for i in range(0, 9):
         for j in range(0, 8):
             for k in range(j+1, 9):
-                if (sudoku[i][j] == sudoku[i][k] and sudoku[i][j] != 0) or (sudoku[j][i] == sudoku[k][i] and sudoku[j][i] != 0):
+                if (sudoku[i][j] == sudoku[i][k] and sudoku[i][j] != 0 and not isinstance(sudoku[i][j], list)) or (sudoku[j][i] == sudoku[k][i] and sudoku[j][i] != 0 and not isinstance(sudoku[j][i], list)):
                     return False
     
     for i in range(0, 8, 3):
@@ -280,23 +280,23 @@ def checkValidance(sudoku):
 
             currentValues = []
 
-            if sudoku[i][j]!=0:
+            if sudoku[i][j]!=0 and not isinstance(sudoku[i][j], list):
                 currentValues.append(sudoku[i][j])
-            if sudoku[i][j+1]!=0:
+            if sudoku[i][j+1]!=0 and not isinstance(sudoku[i][j+1], list):
                 currentValues.append(sudoku[i][j+1])
-            if sudoku[i][j+2]!=0:
+            if sudoku[i][j+2]!=0 and not isinstance(sudoku[i][j+2], list):
                 currentValues.append(sudoku[i][j+2])
-            if sudoku[i+1][j]!=0:
+            if sudoku[i+1][j]!=0 and not isinstance(sudoku[i+1][j], list):
                 currentValues.append(sudoku[i+1][j])
-            if sudoku[i+1][j+1]!=0:
+            if sudoku[i+1][j+1]!=0 and not isinstance(sudoku[i+1][j+1], list):
                 currentValues.append(sudoku[i+1][j+1])
-            if sudoku[i+1][j+2]!=0:
+            if sudoku[i+1][j+2]!=0 and not isinstance(sudoku[i+1][j+2], list):
                 currentValues.append(sudoku[i+1][j+2])
-            if sudoku[i+2][j]!=0:
+            if sudoku[i+2][j]!=0 and not isinstance(sudoku[i+2][j], list):
                 currentValues.append(sudoku[i+2][j])
-            if sudoku[i+2][j+1]!=0:
+            if sudoku[i+2][j+1]!=0 and not isinstance(sudoku[i+2][j+1], list):
                 currentValues.append(sudoku[i+2][j+1])
-            if sudoku[i+2][j+2]!=0:
+            if sudoku[i+2][j+2]!=0 and not isinstance(sudoku[i+2][j+2], list):
                 currentValues.append(sudoku[i+2][j+2])
 
             if len(currentValues)!=len(set(currentValues)): #Checks if the length of list changed after removing the duplicates
@@ -304,51 +304,50 @@ def checkValidance(sudoku):
         
     return True
 
-
-sudokuSolutions = []
-recursiveCondition = True
 def solveSudoku(sudoku, indexI=0, indexJ=0):
-
-    def checkCompletance():
+    print(f"At position ({indexI},{indexJ})")
+    def checkCompletance(sudokuParameter):
         for i in range(0, 9):
             for j in range(0, 9):
-                if sudoku[i][j] == 0:
+                if sudokuParameter[i][j] == 0:
                     return False
         return True
+    
+    if indexI == 9:
+        print("Index I is 9")
+        if checkValidance(sudoku) and checkCompletance(sudoku):
+            sudokuSolutions.append(copy.deepcopy(sudoku))
+        return True
+
+    nextI = (indexI + 1) if (indexJ == 8) else indexI
+    nextJ = 0 if (indexJ==8) else indexJ + 1
 
     # If the current number in sudoku is a value that won't change we proceed to next index
     if not isinstance(sudoku[indexI][indexJ], list):
-        if indexJ == 8:
-            indexJ = 0
-            indexI += 1
-        else:
-            indexJ += 1
-        if indexI == 9:
-            return
-        solveSudoku(sudoku, indexI, indexJ)
+        print("it checked if its a list")
+        return solveSudoku(sudoku, nextI, nextJ)
     
     # Here should be the recursive algorithm
-    else:
-        for i in range(0, len(sudoku[indexI][indexJ])):
-            sudoku[indexI][indexJ] = sudoku[indexI][indexJ][i]
-            if checkValidance(sudoku):
-                if indexJ == 8:
-                    indexJ = 0
-                    indexI += 1
-                else:
-                    indexJ += 1
-                if checkCompletance():
-                    sudokuSolutions.append(copy.deepcopy(sudoku))
-                    return
-                if indexI != 9:
-                    solveSudoku(sudoku, indexI, indexJ)
+    originalValues = sudoku[indexI][indexJ]
+    for i in originalValues:
+        print("Value of i", i)
+        sudoku[indexI][indexJ] = i
+        if checkValidance(sudoku):
+            if solveSudoku(sudoku, nextI, nextJ):
+                return True
+        
+    sudoku[indexI][indexJ] = originalValues
+    print ("it backtracked to original values")
+    return False
     
-
 if __name__ == '__main__':
+    sudokuSolutions = []
     showSudoku(initialSudoku)
     allPosibilities()
     print(allPosibilitiesSudoku)
     showSudoku(allPosibilitiesSudoku)
     print(checkValidance(initialSudoku))
-    solveSudoku(initialSudoku)
+    solveSudoku(allPosibilitiesSudoku)
     print(sudokuSolutions)
+
+    
