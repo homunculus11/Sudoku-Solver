@@ -1,32 +1,6 @@
 import time
 import copy
 
-    #firstSudokuTest
-initialSudoku = [[4, 0, 0, 3, 0, 8, 0, 0, 6],   
-                 [0, 0, 0, 0, 0, 0, 3, 0, 0],
-                 [0, 9, 0, 0, 0, 0, 8, 1, 0],
-                 [1, 0, 2, 0, 5, 0, 6, 4, 0],
-                 [0, 0, 0, 0, 6, 0, 0, 0, 0],
-                 [0, 3, 4, 0, 7, 0, 9, 0, 5],
-                 [0, 1, 7, 0, 0, 0, 0, 2, 0],
-                 [0, 0, 9, 0, 0, 0, 0, 0, 0],
-                 [5, 0, 0, 2, 0, 7, 0, 0, 1]]
-
-    #secondSudokuTest
-# initialSudoku = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
-#                  [0, 0, 0, 0, 0, 0, 8, 0, 5],
-#                  [0, 0, 0, 0, 7, 1, 0, 0, 0],
-#                  [0, 0, 0, 0, 0, 0, 0, 0, 7],
-#                  [0, 0, 5, 0, 9, 0, 0, 8, 1],
-#                  [0, 0, 7, 0, 0, 8, 5, 9, 3],
-#                  [0, 0, 8, 0, 2, 3, 0, 7, 0],
-#                  [0, 3, 9, 0, 0, 5, 0, 0, 0],
-#                  [0, 7, 1, 0, 6, 0, 0, 0, 4]]
-
-    #secondSudokuTest
-
-allPosibilitiesSudoku = copy.deepcopy(initialSudoku)
-
 # Functions to print/display error messages
 def errorMessage(context):
     pass
@@ -47,6 +21,8 @@ def showSudoku(sudoku):
                 print("   |   ", end="")
             if sudoku[i][j] == 0 or isinstance(sudoku[i][j], list):
                 print(end=" ")
+            elif sudoku[i][j] != initialSudoku[i][j]:
+                print(f"\033[33m{sudoku[i][j]}\033[0m", end="")
             else:
                 print(sudoku[i][j], end="")
         print("\033[31m   │\033[0m")
@@ -315,11 +291,8 @@ def checkValidance(sudoku):
         
     return True
 
-number = 0
 def solveSudoku(sudoku, indexI=0, indexJ=0):
-    global number
     # print(f"At position ({indexI},{indexJ})")
-    number += 1
     def checkCompletance(sudokuParameter):
         for i in range(0, 9):
             for j in range(0, 9):
@@ -350,16 +323,49 @@ def solveSudoku(sudoku, indexI=0, indexJ=0):
     sudoku[indexI][indexJ] = originalValues
     return False
     
-# if __name__ == '__main__':
-sudokuSolutions = []
-showSudoku(initialSudoku)
-allPosibilities()
-print(allPosibilitiesSudoku)
-showSudoku(allPosibilitiesSudoku)
-print(checkValidance(initialSudoku))
-solveSudoku(allPosibilitiesSudoku)
-print(sudokuSolutions)
-showSudoku(sudokuSolutions[0])
-print(number)
+if __name__ == '__main__':
+
+            #firstSudokuTest
+    # initialSudoku = [[4, 0, 0, 3, 0, 8, 0, 0, 6],   
+    #                 [0, 0, 0, 0, 0, 0, 3, 0, 0],
+    #                 [0, 9, 0, 0, 0, 0, 8, 1, 0],
+    #                 [1, 0, 2, 0, 5, 0, 6, 4, 0],
+    #                 [0, 0, 0, 0, 6, 0, 0, 0, 0],
+    #                 [0, 3, 4, 0, 7, 0, 9, 0, 5],
+    #                 [0, 1, 7, 0, 0, 0, 0, 2, 0],
+    #                 [0, 0, 9, 0, 0, 0, 0, 0, 0],
+    #                 [5, 0, 0, 2, 0, 7, 0, 0, 1]]
+
+        #secondSudokuTest
+    # initialSudoku = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
+    #                  [0, 0, 0, 0, 0, 0, 8, 0, 5],
+    #                  [0, 0, 0, 0, 7, 1, 0, 0, 0],
+    #                  [0, 0, 0, 0, 0, 0, 0, 0, 7],
+    #                  [0, 0, 5, 0, 9, 0, 0, 8, 1],
+    #                  [0, 0, 7, 0, 0, 8, 5, 9, 3],
+    #                  [0, 0, 8, 0, 2, 3, 0, 7, 0],
+    #                  [0, 3, 9, 0, 0, 5, 0, 0, 0],
+    #                  [0, 7, 1, 0, 6, 0, 0, 0, 4]]
+
+        #thirdSudokuTest
+    initialSudoku = [[1, 0, 0, 0, 0, 0, 0, 0, 2],
+                    [0, 0, 3, 0, 0, 0, 0, 4, 0],
+                    [0, 0, 0, 5, 0, 0, 6, 0, 0],
+                    [0, 7, 0, 0, 8, 0, 0, 0, 0],
+                    [0, 0, 0, 9, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 1, 0, 0, 0],
+                    [0, 0, 2, 0, 0, 0, 0, 0, 0],
+                    [0, 4, 0, 0, 0, 0, 0, 0, 0],
+                    [3, 0, 0, 0, 0, 0, 0, 0, 0]]
+    
+    allPosibilitiesSudoku = copy.deepcopy(initialSudoku)
+    sudokuSolutions = []
+
+    showSudoku(initialSudoku)
+    allPosibilities()
+
+    solveSudoku(allPosibilitiesSudoku)
+    print(sudokuSolutions)
+    showSudoku(sudokuSolutions[0])
 
     
