@@ -5,8 +5,17 @@ import copy
 def errorMessage(context):
     pass
 
-def sudokuTestCase():
-    pass
+def sudokuTestCase(testcase):
+    sudoku = []
+    line = []
+    for i in testcase:
+        if i == "\n":
+            sudoku.append(line)
+            line = []
+        elif i != " ":
+            line.append(int(i))
+    sudoku.append(line)
+    return sudoku
 
 # This function prints out to the console the sudoku parameter
 #    prints out the grid of the 9x9 in a red outline and also the grid of the 3x3 boxes
@@ -361,17 +370,18 @@ if __name__ == '__main__':
     #                 [0, 4, 0, 0, 0, 0, 0, 0, 0],
     #                 [3, 0, 0, 0, 0, 0, 0, 0, 0]]
 
-    fileInformation = open("sudoku1.txt", "r")
+    fileInformation = open("Sudoku-Tests/sudoku1.txt", "r")
     information = fileInformation.read()
-    print(information)
-    initialSudoku = sudokuTestCase()
+    initialSudoku = sudokuTestCase(information)
+
+    print(initialSudoku)
     
-    # allPosibilitiesSudoku = copy.deepcopy(initialSudoku)
-    # sudokuSolutions = []
+    allPosibilitiesSudoku = copy.deepcopy(initialSudoku)
+    sudokuSolutions = []
 
-    # showSudoku(initialSudoku)
-    # allPosibilities()
+    showSudoku(initialSudoku)
+    allPosibilities()
 
-    # solveSudoku(allPosibilitiesSudoku)
-    # print(sudokuSolutions)
-    # showSudoku(sudokuSolutions[0])
+    solveSudoku(allPosibilitiesSudoku)
+    print(sudokuSolutions)
+    showSudoku(sudokuSolutions[0])
