@@ -303,8 +303,9 @@ def checkValidance(sudoku):
         
     return True
 
+# The main function for solving the sudoku using backtracking
 def solveSudoku(sudoku, indexI=0, indexJ=0):
-    # print(f"At position ({indexI},{indexJ})")
+    # print(f"At position ({indexI},{indexJ})") # Print for debugging
     def checkCompletance(sudokuParameter):
         for i in range(0, 9):
             for j in range(0, 9):
@@ -332,56 +333,27 @@ def solveSudoku(sudoku, indexI=0, indexJ=0):
             if solveSudoku(sudoku, nextI, nextJ):
                 return True
         
-    sudoku[indexI][indexJ] = originalValues
+    sudoku[indexI][indexJ] = originalValues # Backtracking to the original values
     return False
-    
+
+# Function main()   
 if __name__ == '__main__':
 
-            #firstSudokuTest
-    # initialSudoku = [[4, 0, 0, 3, 0, 8, 0, 0, 6],   
-    #                 [0, 0, 0, 0, 0, 0, 3, 0, 0],
-    #                 [0, 9, 0, 0, 0, 0, 8, 1, 0],
-    #                 [1, 0, 2, 0, 5, 0, 6, 4, 0],
-    #                 [0, 0, 0, 0, 6, 0, 0, 0, 0],
-    #                 [0, 3, 4, 0, 7, 0, 9, 0, 5],
-    #                 [0, 1, 7, 0, 0, 0, 0, 2, 0],
-    #                 [0, 0, 9, 0, 0, 0, 0, 0, 0],
-    #                 [5, 0, 0, 2, 0, 7, 0, 0, 1]]
 
-        #secondSudokuTest
-    # initialSudoku = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
-    #                  [0, 0, 0, 0, 0, 0, 8, 0, 5],
-    #                  [0, 0, 0, 0, 7, 1, 0, 0, 0],
-    #                  [0, 0, 0, 0, 0, 0, 0, 0, 7],
-    #                  [0, 0, 5, 0, 9, 0, 0, 8, 1],
-    #                  [0, 0, 7, 0, 0, 8, 5, 9, 3],
-    #                  [0, 0, 8, 0, 2, 3, 0, 7, 0],
-    #                  [0, 3, 9, 0, 0, 5, 0, 0, 0],
-    #                  [0, 7, 1, 0, 6, 0, 0, 0, 4]]
-
-        #thirdSudokuTest
-    # initialSudoku = [[1, 0, 0, 0, 0, 0, 0, 0, 2],
-    #                 [0, 0, 3, 0, 0, 0, 0, 4, 0],
-    #                 [0, 0, 0, 5, 0, 0, 6, 0, 0],
-    #                 [0, 7, 0, 0, 8, 0, 0, 0, 0],
-    #                 [0, 0, 0, 9, 0, 0, 0, 0, 0],
-    #                 [0, 0, 0, 0, 0, 1, 0, 0, 0],
-    #                 [0, 0, 2, 0, 0, 0, 0, 0, 0],
-    #                 [0, 4, 0, 0, 0, 0, 0, 0, 0],
-    #                 [3, 0, 0, 0, 0, 0, 0, 0, 0]]
-
+    # The sudoku test is read from a specified file in the fileInformation variable
     fileInformation = open("Sudoku-Tests/sudoku1.txt", "r")
     information = fileInformation.read()
     initialSudoku = sudokuTestCase(information)
-
-    print(initialSudoku)
     
+    # We optimize the solutions so we can backtrack faster and not waste any time on unnecesary itterations of a function
     allPosibilitiesSudoku = copy.deepcopy(initialSudoku)
     sudokuSolutions = []
 
+    # Show initial sudoku in a console interface
     showSudoku(initialSudoku)
     allPosibilities()
 
+    # Solve the sudoku then print in a console interface the solution
     solveSudoku(allPosibilitiesSudoku)
-    print(sudokuSolutions)
+    # print(sudokuSolutions) # Debugging print statement
     showSudoku(sudokuSolutions[0])
