@@ -5,6 +5,9 @@ import copy
 def errorMessage(context):
     pass
 
+def sudokuTestCase():
+    pass
+
 # This function prints out to the console the sudoku parameter
 #    prints out the grid of the 9x9 in a red outline and also the grid of the 3x3 boxes
 def showSudoku(sudoku):
@@ -348,24 +351,27 @@ if __name__ == '__main__':
     #                  [0, 7, 1, 0, 6, 0, 0, 0, 4]]
 
         #thirdSudokuTest
-    initialSudoku = [[1, 0, 0, 0, 0, 0, 0, 0, 2],
-                    [0, 0, 3, 0, 0, 0, 0, 4, 0],
-                    [0, 0, 0, 5, 0, 0, 6, 0, 0],
-                    [0, 7, 0, 0, 8, 0, 0, 0, 0],
-                    [0, 0, 0, 9, 0, 0, 0, 0, 0],
-                    [0, 0, 0, 0, 0, 1, 0, 0, 0],
-                    [0, 0, 2, 0, 0, 0, 0, 0, 0],
-                    [0, 4, 0, 0, 0, 0, 0, 0, 0],
-                    [3, 0, 0, 0, 0, 0, 0, 0, 0]]
+    # initialSudoku = [[1, 0, 0, 0, 0, 0, 0, 0, 2],
+    #                 [0, 0, 3, 0, 0, 0, 0, 4, 0],
+    #                 [0, 0, 0, 5, 0, 0, 6, 0, 0],
+    #                 [0, 7, 0, 0, 8, 0, 0, 0, 0],
+    #                 [0, 0, 0, 9, 0, 0, 0, 0, 0],
+    #                 [0, 0, 0, 0, 0, 1, 0, 0, 0],
+    #                 [0, 0, 2, 0, 0, 0, 0, 0, 0],
+    #                 [0, 4, 0, 0, 0, 0, 0, 0, 0],
+    #                 [3, 0, 0, 0, 0, 0, 0, 0, 0]]
+
+    fileInformation = open("sudoku1.txt", "r")
+    information = fileInformation.read()
+    print(information)
+    initialSudoku = sudokuTestCase()
     
-    allPosibilitiesSudoku = copy.deepcopy(initialSudoku)
-    sudokuSolutions = []
+    # allPosibilitiesSudoku = copy.deepcopy(initialSudoku)
+    # sudokuSolutions = []
 
-    showSudoku(initialSudoku)
-    allPosibilities()
+    # showSudoku(initialSudoku)
+    # allPosibilities()
 
-    solveSudoku(allPosibilitiesSudoku)
-    print(sudokuSolutions)
-    showSudoku(sudokuSolutions[0])
-
-    
+    # solveSudoku(allPosibilitiesSudoku)
+    # print(sudokuSolutions)
+    # showSudoku(sudokuSolutions[0])
