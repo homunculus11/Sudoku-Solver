@@ -2,26 +2,26 @@ import time
 import copy
 
     #firstSudokuTest
-# initialSudoku = [[4, 0, 0, 3, 0, 8, 0, 0, 6],   
-#                  [0, 0, 0, 0, 0, 0, 3, 0, 0],
-#                  [0, 9, 0, 0, 0, 0, 8, 1, 0],
-#                  [1, 0, 2, 0, 5, 0, 6, 4, 0],
-#                  [0, 0, 0, 0, 6, 0, 0, 0, 0],
-#                  [0, 3, 4, 0, 7, 0, 9, 0, 5],
-#                  [0, 1, 7, 0, 0, 0, 0, 2, 0],
-#                  [0, 0, 9, 0, 0, 0, 0, 0, 0],
-#                  [5, 0, 0, 2, 0, 7, 0, 0, 1]]
+initialSudoku = [[4, 0, 0, 3, 0, 8, 0, 0, 6],   
+                 [0, 0, 0, 0, 0, 0, 3, 0, 0],
+                 [0, 9, 0, 0, 0, 0, 8, 1, 0],
+                 [1, 0, 2, 0, 5, 0, 6, 4, 0],
+                 [0, 0, 0, 0, 6, 0, 0, 0, 0],
+                 [0, 3, 4, 0, 7, 0, 9, 0, 5],
+                 [0, 1, 7, 0, 0, 0, 0, 2, 0],
+                 [0, 0, 9, 0, 0, 0, 0, 0, 0],
+                 [5, 0, 0, 2, 0, 7, 0, 0, 1]]
 
     #secondSudokuTest
-initialSudoku = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
-                 [0, 0, 0, 0, 0, 0, 8, 0, 5],
-                 [0, 0, 0, 0, 7, 1, 0, 0, 0],
-                 [0, 0, 0, 0, 0, 0, 0, 0, 7],
-                 [0, 0, 5, 0, 9, 0, 0, 8, 1],
-                 [0, 0, 7, 0, 0, 8, 5, 9, 3],
-                 [0, 0, 8, 0, 2, 3, 0, 7, 0],
-                 [0, 3, 9, 0, 0, 5, 0, 0, 0],
-                 [0, 7, 1, 0, 6, 0, 0, 0, 4]]
+# initialSudoku = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
+#                  [0, 0, 0, 0, 0, 0, 8, 0, 5],
+#                  [0, 0, 0, 0, 7, 1, 0, 0, 0],
+#                  [0, 0, 0, 0, 0, 0, 0, 0, 7],
+#                  [0, 0, 5, 0, 9, 0, 0, 8, 1],
+#                  [0, 0, 7, 0, 0, 8, 5, 9, 3],
+#                  [0, 0, 8, 0, 2, 3, 0, 7, 0],
+#                  [0, 3, 9, 0, 0, 5, 0, 0, 0],
+#                  [0, 7, 1, 0, 6, 0, 0, 0, 4]]
 
     #secondSudokuTest
 
@@ -315,8 +315,11 @@ def checkValidance(sudoku):
         
     return True
 
+number = 0
 def solveSudoku(sudoku, indexI=0, indexJ=0):
-    print(f"At position ({indexI},{indexJ})")
+    global number
+    # print(f"At position ({indexI},{indexJ})")
+    number += 1
     def checkCompletance(sudokuParameter):
         for i in range(0, 9):
             for j in range(0, 9):
@@ -325,7 +328,6 @@ def solveSudoku(sudoku, indexI=0, indexJ=0):
         return True
     
     if indexI == 9:
-        print("Index I is 9")
         if checkValidance(sudoku) and checkCompletance(sudoku):
             sudokuSolutions.append(copy.deepcopy(sudoku))
         return True
@@ -335,31 +337,29 @@ def solveSudoku(sudoku, indexI=0, indexJ=0):
 
     # If the current number in sudoku is a value that won't change we proceed to next index
     if not isinstance(sudoku[indexI][indexJ], list):
-        print("it checked if its a list")
         return solveSudoku(sudoku, nextI, nextJ)
     
     # Here should be the recursive algorithm
     originalValues = sudoku[indexI][indexJ]
     for i in originalValues:
-        print("Value of i", i)
         sudoku[indexI][indexJ] = i
         if checkValidance(sudoku):
             if solveSudoku(sudoku, nextI, nextJ):
                 return True
         
     sudoku[indexI][indexJ] = originalValues
-    print ("it backtracked to original values")
     return False
     
-if __name__ == '__main__':
-    sudokuSolutions = []
-    showSudoku(initialSudoku)
-    allPosibilities()
-    print(allPosibilitiesSudoku)
-    showSudoku(allPosibilitiesSudoku)
-    print(checkValidance(initialSudoku))
-    solveSudoku(allPosibilitiesSudoku)
-    print(sudokuSolutions)
-    showSudoku(sudokuSolutions[0])
+# if __name__ == '__main__':
+sudokuSolutions = []
+showSudoku(initialSudoku)
+allPosibilities()
+print(allPosibilitiesSudoku)
+showSudoku(allPosibilitiesSudoku)
+print(checkValidance(initialSudoku))
+solveSudoku(allPosibilitiesSudoku)
+print(sudokuSolutions)
+showSudoku(sudokuSolutions[0])
+print(number)
 
     
