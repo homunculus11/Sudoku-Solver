@@ -300,3 +300,7 @@ function solveSudoku(sudoku, indexI=0, indexJ=0){
 
     sudoku[indexI][indexJ] = originalValues;
 }
+
+function create2DArray(){
+    
+}
