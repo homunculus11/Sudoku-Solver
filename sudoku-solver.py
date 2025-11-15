@@ -20,6 +20,7 @@ def sudokuTestCase(testcase):
 # This function prints out to the console the sudoku parameter
 #    prints out the grid of the 9x9 in a red outline and also the grid of the 3x3 boxes
 def showSudoku(sudoku):
+    global initialSudoku
     
     print("\033[31m─────────────────────────────────────────────────────────────────────────\033[0m")
     print("\033[31m│\033[0m       |       |       \033[31m|\033[0m       |       |       \033[31m|\033[0m       |       |       \033[31m│\033[0m")
@@ -64,6 +65,15 @@ def allPosibilities():
                     counter += 1
         return counter
 
+    # In case this function is backtracked
+    #   all values that are a list of possiblities are being brought back to 0
+    def backToZero():
+        for i in range (0, 9):
+            for j in range (0, 9):
+                if isinstance(allPosibilitiesSudoku[i][j], list):
+                    allPosibilitiesSudoku[i][j] = 0
+
+    backToZero()
     numberOfValuesBefore = countValues()
 
     for i in range (0, 9):      # Going through all rows
@@ -117,12 +127,12 @@ def allPosibilities():
                         currentPosibilities.remove(allPosibilitiesSudoku[i+1][j])
                     if allPosibilitiesSudoku[i+1][j+1] in currentPosibilities:
                         currentPosibilities.remove(allPosibilitiesSudoku[i+1][j+1])
-                    if allPosibilitiesSudoku[i+1][j-1] in currentPosibilities:
-                        currentPosibilities.remove(allPosibilitiesSudoku[i+1][j-1])
-                    if allPosibilitiesSudoku[i+1][j] in currentPosibilities:
-                        currentPosibilities.remove(allPosibilitiesSudoku[i+1][j])
-                    if allPosibilitiesSudoku[i+1][j+1] in currentPosibilities:
-                        currentPosibilities.remove(allPosibilitiesSudoku[i+1][j+1])
+                    if allPosibilitiesSudoku[i+2][j-1] in currentPosibilities:
+                        currentPosibilities.remove(allPosibilitiesSudoku[i+2][j-1])
+                    if allPosibilitiesSudoku[i+2][j] in currentPosibilities:
+                        currentPosibilities.remove(allPosibilitiesSudoku[i+2][j])
+                    if allPosibilitiesSudoku[i+2][j+1] in currentPosibilities:
+                        currentPosibilities.remove(allPosibilitiesSudoku[i+2][j+1])
 
                 elif i % 3 == 0 and j % 3 == 2:
                     if allPosibilitiesSudoku[i][j-2] in currentPosibilities:
@@ -135,11 +145,11 @@ def allPosibilities():
                         currentPosibilities.remove(allPosibilitiesSudoku[i+1][j-1])
                     if allPosibilitiesSudoku[i+1][j] in currentPosibilities:
                         currentPosibilities.remove(allPosibilitiesSudoku[i+1][j])
-                    if allPosibilitiesSudoku[i+1][j-2] in currentPosibilities:
+                    if allPosibilitiesSudoku[i+2][j-2] in currentPosibilities:
                         currentPosibilities.remove(allPosibilitiesSudoku[i+2][j-2])
-                    if allPosibilitiesSudoku[i+1][j-1] in currentPosibilities:
+                    if allPosibilitiesSudoku[i+2][j-1] in currentPosibilities:
                         currentPosibilities.remove(allPosibilitiesSudoku[i+2][j-1])
-                    if allPosibilitiesSudoku[i+1][j] in currentPosibilities:
+                    if allPosibilitiesSudoku[i+2][j] in currentPosibilities:
                         currentPosibilities.remove(allPosibilitiesSudoku[i+2][j])
                 
                 elif i % 3 == 1 and j % 3 == 0:
@@ -341,7 +351,7 @@ if __name__ == '__main__':
 
 
     # The sudoku test is read from a specified file in the fileInformation variable
-    fileInformation = open("Sudoku-Tests/sudoku4.txt", "r")
+    fileInformation = open("Sudoku-Tests/sudoku1.txt", "r")
     information = fileInformation.read()
     initialSudoku = sudokuTestCase(information)
     
@@ -355,5 +365,5 @@ if __name__ == '__main__':
 
     # Solve the sudoku then print in a console interface the solution
     solveSudoku(allPosibilitiesSudoku)
-    # print(sudokuSolutions) # Debugging print statement
-    showSudoku(sudokuSolutions)
+    print(sudokuSolutions) # Debugging print statement
+    # showSudoku(sudokuSolutions[0])
