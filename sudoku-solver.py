@@ -341,7 +341,7 @@ if __name__ == '__main__':
 
 
     # The sudoku test is read from a specified file in the fileInformation variable
-    fileInformation = open("Sudoku-Tests/sudoku1.txt", "r")
+    fileInformation = open("Sudoku-Tests/sudoku4.txt", "r")
     information = fileInformation.read()
     initialSudoku = sudokuTestCase(information)
     
@@ -356,4 +356,4 @@ if __name__ == '__main__':
     # Solve the sudoku then print in a console interface the solution
     solveSudoku(allPosibilitiesSudoku)
     # print(sudokuSolutions) # Debugging print statement
-    showSudoku(sudokuSolutions[0])
+    showSudoku(sudokuSolutions)
