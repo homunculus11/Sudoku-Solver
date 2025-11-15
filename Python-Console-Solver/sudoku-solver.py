@@ -87,16 +87,13 @@ def allPosibilities():
             else:
                 currentPosibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9] # Initializing all possible values so we have a faster algorithm      
 
-                # Removes all the values in the same row
+                # Removes all the values in the same row and in the same column
                 for k in range(0, 9):                                        
                     if allPosibilitiesSudoku[i][k] in currentPosibilities:
                         currentPosibilities.remove(allPosibilitiesSudoku[i][k])
-                
-                # Removes all the values in the same column
-                for k in range(0, 9):
                     if allPosibilitiesSudoku[k][j] in currentPosibilities: 
                         currentPosibilities.remove(allPosibilitiesSudoku[k][j])
-
+                    
                 # Removes all the values in the same 3x3 cell
                 if i % 3 == 0 and j % 3 == 0:
                     if allPosibilitiesSudoku[i][j+1] in currentPosibilities:
