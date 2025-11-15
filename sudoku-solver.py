@@ -326,7 +326,7 @@ def solveSudoku(sudoku, indexI=0, indexJ=0):
     if indexI == 9:
         if checkValidance(sudoku) and checkCompletance(sudoku):
             sudokuSolutions.append(copy.deepcopy(sudoku))
-        return True
+        return
 
     nextI = (indexI + 1) if (indexJ == 8) else indexI
     nextJ = 0 if (indexJ==8) else indexJ + 1
@@ -341,19 +341,19 @@ def solveSudoku(sudoku, indexI=0, indexJ=0):
         sudoku[indexI][indexJ] = i
         if checkValidance(sudoku):
             if solveSudoku(sudoku, nextI, nextJ):
-                return True
+                return
         
     sudoku[indexI][indexJ] = originalValues # Backtracking to the original values
-    return False
 
 # Function main()   
 if __name__ == '__main__':
 
 
     # The sudoku test is read from a specified file in the fileInformation variable
-    fileInformation = open("Sudoku-Tests/sudoku1.txt", "r")
+    fileInformation = open("Sudoku-Tests/sudoku3.txt", "r")
     information = fileInformation.read()
     initialSudoku = sudokuTestCase(information)
+    print(checkValidance(initialSudoku))
     
     # We optimize the solutions so we can backtrack faster and not waste any time on unnecesary itterations of a function
     allPosibilitiesSudoku = copy.deepcopy(initialSudoku)
@@ -365,5 +365,6 @@ if __name__ == '__main__':
 
     # Solve the sudoku then print in a console interface the solution
     solveSudoku(allPosibilitiesSudoku)
-    print(sudokuSolutions) # Debugging print statement
-    # showSudoku(sudokuSolutions[0])
+    # print(sudokuSolutions) # Debugging print statement
+    for i in range(len(sudokuSolutions)):
+        showSudoku(sudokuSolutions[i])
