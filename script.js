@@ -302,5 +302,17 @@ function solveSudoku(sudoku, indexI=0, indexJ=0){
 }
 
 function create2DArray(){
-    
+    let returnSudoku = [];
+    let currentRow = [];
+    let inputFromHTML = document.querySelectorAll(".valueInput");
+
+    console.log(inputFromHTML);
+    for (let i=0; i<inputFromHTML.length; i++){
+        currentRow.push(Number(inputFromHTML[i].value));
+        if ( (i+1)%9==0 ){
+            returnSudoku.push(currentRow);
+            currentRow = [];
+        }
+    }
+    console.log(returnSudoku);
 }
