@@ -306,7 +306,6 @@ function create2DArray(){
     let currentRow = [];
     let inputFromHTML = document.querySelectorAll(".valueInput");
 
-    console.log(inputFromHTML);
     for (let i=0; i<inputFromHTML.length; i++){
         currentRow.push(Number(inputFromHTML[i].value));
         if ( (i+1)%9==0 ){
@@ -314,5 +313,5 @@ function create2DArray(){
             currentRow = [];
         }
     }
-    console.log(returnSudoku);
+    return returnSudoku;
 }
