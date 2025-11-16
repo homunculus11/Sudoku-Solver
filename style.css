@@ -1,318 +1,328 @@
 html {
-zoom: reset;
+    zoom: reset;
 }
 
 body {
-margin: 0;
-padding: 0;
-overflow: hidden;
-transform: scale(1);
-transform-origin: 0 0;
-width: 100vw;
-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    transform: scale(1);
+    transform-origin: 0 0;
+    width: 100vw;
+    height: 100vh;
 }
 
 #Main {
-display: flex;
-justify-content: center;
-justify-items: center;
-align-content: center;
-align-items: center;
-height: 100vh;
-margin: 0px;
-position: relative;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0px;
+    position: relative;
 }
 
 img {
-min-height: 100%;
-min-width: 10px;
-width: 100%;
-height: 100%;
-position: fixed;
-top: 0;
-left: 0;
--webkit-user-drag: none;
-user-select: none;
--moz-user-select: none;
--webkit-user-select: none;
--ms-user-select: none;
-z-index: 0;
+    min-height: 100%;
+    min-width: 10px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    z-index: 0;
 }
 
 #MainFrame {
-gap: 0px;
-padding: 10px;
-width: 475px;
-height: 475px;
-min-width: 475px;
-min-height: 475px;
-max-width: 475px;
-max-height: 475px;
-z-index: 10;
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
+    gap: 0px;
+    padding: 10px;
+    width: 475px;
+    height: 475px;
+    min-width: 475px;
+    min-height: 475px;
+    max-width: 475px;
+    max-height: 475px;
+    z-index: 10;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-align-items: center;
-justify-items: center;
+    align-items: center;
+    justify-items: center;
 
-background: rgba(255, 255, 255, 0.22);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgb(0, 0, 0);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgb(0, 0, 0);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 #Buttons {
-display: grid;
-grid-template-columns: repeat(9, 47px);
-grid-template-rows: repeat(9, 47px);
-gap: 3px;
-width: 450px;
-height: 450px;
-min-width: 450px;
-min-height: 450px;
-max-width: 450px;
-max-height: 450px;
-margin: 0;
-padding: 0;
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
--webkit-user-select: none;
--ms-user-select: none;
-user-select: none;
-z-index: 11;
+    display: grid;
+    grid-template-columns: repeat(9, 47px);
+    grid-template-rows: repeat(9, 47px);
+    gap: 3px;
+    width: 450px;
+    height: 450px;
+    min-width: 450px;
+    min-height: 450px;
+    max-width: 450px;
+    max-height: 450px;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 11;
 }
 
 input {
-font-size: 40px;
-font-family: Georgia, 'Times New Roman', Times, serif;
-opacity: 55%;
-color: white;
-background: rgba(0, 0, 0, 0.438);
-border-radius: 4px;
-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.685);
-cursor: pointer;
-text-align: center;
-width: 47px;
-height: 47px;
-min-width: 47px;
-min-height: 47px;
-max-width: 47px;
-max-height: 47px;
--webkit-user-select: none;
--ms-user-select: none;
-user-select: none;
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    opacity: 55%;
+    color: white;
+    background: rgba(0, 0, 0, 0.438);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.685);
+    cursor: pointer;
+    text-align: center;
+    width: 47px;
+    height: 47px;
+    min-width: 47px;
+    min-height: 47px;
+    max-width: 47px;
+    max-height: 47px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-#UpLeft{
+/* Dimon eu ti-am schimbat toate id-urile la input ca sa pot face acolo niste functii la script.js, mai scurt is 81 de id-uri amu, un id pentru fiecare input*/
+/* #UpLeft */
+#button1, #button4, #button7, #button28, #button31, #button34, #button55, #button58, #button61{
     border-top: 3px solid rgba(255, 255, 255, 1);
     border-left: 3px solid rgba(255, 255, 255, 1);
 }
-#UpRight{
+/* #UpRight */
+#button3, #button6, #button9, #button30, #button33, #button36, #button57,
+#button60, #button63{
     border-top: 3px solid rgba(255, 255, 255, 1);
     border-right: 3px solid rgba(255, 255, 255, 1);
 }
-#DownLeft{
+/* #DownLeft */
+#button19, #button22, #button25, #button46, #button49, #button52, #button73,#button76, #button79{
     border-bottom: 3px solid rgba(255, 255, 255, 1);
     border-left: 3px solid rgba(255, 255, 255, 1);
 }
-#DownRight{
+/* #DownRight */
+#button21, #button24, #button27, #button48, #button51, #button54, #button75, #button78, #button81{
     border-bottom: 3px solid rgba(255, 255, 255, 1);
     border-right: 3px solid rgba(255, 255, 255, 1);
 }
-#Up{
+/* #Up */
+#button2, #button5, #button8, #button29, #button32, #button35, #button56, #button59, #button62{
     border-top: 3px solid rgba(255, 255, 255, 1);
 }
-#Down{
+/* #Down */
+#button20, #button23, #button26, #button47, #button50, #button53, #button74,#button77, #button80{
     border-bottom: 3px solid rgba(255, 255, 255, 1);
 }
-#Left{
+/* #Left */
+#button10, #button13, #button16, #button37, #button40, #button43, #button64, #button67, #button70{
     border-left: 3px solid rgba(255, 255, 255, 1);
 }
-#Right{
+/* #Right */
+#button12, #button15, #button18, #button39, #button42, #button45, #button66, #button69, #button72{
     border-right: 3px solid rgba(255, 255, 255, 1);
 }
 
 #Score{
-display: flex;
-gap: 6px;
-width: 400px;
-height: 100px;
-min-width: 400px;
-min-height: 100px;
-max-width: 400px;
-max-height: 100px;
-margin: 0;
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, calc(-50% - 280px));
-z-index: 15;
+    display: flex;
+    gap: 6px;
+    width: 400px;
+    height: 100px;
+    min-width: 400px;
+    min-height: 100px;
+    max-width: 400px;
+    max-height: 100px;
+    margin: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 280px));
+    z-index: 15;
 }
 
 #Next{
-display: flex;
-gap: 6px;
-width: 100px;
-height: 100px;
-min-width: 100px;
-min-height: 100px;
-max-width: 100px;
-max-height: 100px;
-margin: 0;
-position: fixed;
-top: 80%;
-left: 90%;
-transform: translate(-50%, calc(-50% - 280px));
-z-index: 15;
+    display: flex;
+    gap: 6px;
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0;
+    position: fixed;
+    top: 80%;
+    left: 90%;
+    transform: translate(-50%, calc(-50% - 280px));
+    z-index: 15;
 }
 
 #NextButton{
-font-size: 23px;
-font-family: Georgia, 'Times New Roman', Times, serif;
-text-align: center;
-opacity: 100%;
-color: white;
-background: rgba(0, 0, 0, 0.438);
-border-radius: 12px;
-box-shadow: 0 4px 30px rgb(0, 0, 0);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.685);
+    font-size: 23px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    opacity: 100%;
+    color: white;
+    background: rgba(0, 0, 0, 0.438);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgb(0, 0, 0);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.685);
 
-width: 50px;
-height: 50px;
-min-width: 50px;
-min-height: 50px;
-max-width: 50px;
-max-height: 50px;
-display: flex;
-align-items: center;
-justify-content: center;
--webkit-user-select: none;
--ms-user-select: none;
-user-select: none;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #Previous{
-display: flex;
-gap: 6px;
-width: 100px;
-height: 100px;
-min-width: 100px;
-min-height: 100px;
-max-width: 100px;
-max-height: 100px;
-margin: 0;
-position: fixed;
-top: 80%;
-left: 15%;
-transform: translate(-50%, calc(-50% - 280px));
-z-index: 15;
+    display: flex;
+    gap: 6px;
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0;
+    position: fixed;
+    top: 80%;
+    left: 15%;
+    transform: translate(-50%, calc(-50% - 280px));
+    z-index: 15;
 }
 
 #PreviousButton{
-font-size: 23px;
-font-family: Georgia, 'Times New Roman', Times, serif;
-text-align: center;
-opacity: 100%;
-color: white;
-background: rgba(0, 0, 0, 0.438);
-border-radius: 12px;
-box-shadow: 0 4px 30px rgb(0, 0, 0);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.685);
+    font-size: 23px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    opacity: 100%;
+    color: white;
+    background: rgba(0, 0, 0, 0.438);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgb(0, 0, 0);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.685);
 
-width: 50px;
-height: 50px;
-min-width: 50px;
-min-height: 50px;
-max-width: 50px;
-max-height: 50px;
-display: flex;
-align-items: center;
-justify-content: center;
--webkit-user-select: none;
--ms-user-select: none;
-user-select: none;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #Solve{
-display: flex;
-gap: 6px;
-width: 100px;
-height: 100px;
-min-width: 100px;
-min-height: 100px;
-max-width: 100px;
-max-height: 100px;
-margin: 0;
-position: fixed;
-top: 111%;
-left: 50%;
-transform: translate(-50%, calc(-50% - 280px));
-z-index: 15;
+    display: flex;
+    gap: 6px;
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0;
+    position: fixed;
+    top: 111%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 280px));
+    z-index: 15;
 }
 
 #SolveButton{
-font-size: 23px;
-font-family: Georgia, 'Times New Roman', Times, serif;
-text-align: center;
-opacity: 100%;
-color: white;
-background: rgba(0, 0, 0, 0.438);
-border-radius: 12px;
-box-shadow: 0 4px 30px rgb(0, 0, 0);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.685);
+    font-size: 23px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    opacity: 100%;
+    color: white;
+    background: rgba(0, 0, 0, 0.438);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgb(0, 0, 0);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.685);
 
-width: 100px;
-height: 50px;
-min-width: 100px;
-min-height: 50px;
-max-width: 100px;
-max-height: 50px;
-display: flex;
-align-items: center;
-justify-content: center;
--webkit-user-select: none;
--ms-user-select: none;
-user-select: none;
+    width: 100px;
+    height: 50px;
+    min-width: 100px;
+    min-height: 50px;
+    max-width: 100px;
+    max-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #ScoreBoard{
-font-size: 23px;
-font-family: Georgia, 'Times New Roman', Times, serif;
-text-align: center;
-opacity: 100%;
-color: white;
-background: rgba(0, 0, 0, 0.438);
-border-radius: 12px;
-box-shadow: 0 4px 30px rgb(0, 0, 0);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.685);
+    font-size: 23px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    opacity: 100%;
+    color: white;
+    background: rgba(0, 0, 0, 0.438);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgb(0, 0, 0);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.685);
 
-width: 400px;
-height: 50px;
-min-width: 400px;
-min-height: 50px;
-max-width: 400px;
-max-height: 50px;
-display: flex;
-align-items: center;
-justify-content: center;
--webkit-user-select: none;
--ms-user-select: none;
-user-select: none;
+    width: 400px;
+    height: 50px;
+    min-width: 400px;
+    min-height: 50px;
+    max-width: 400px;
+    max-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
