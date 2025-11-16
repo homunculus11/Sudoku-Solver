@@ -315,3 +315,19 @@ function create2DArray(){
     }
     return returnSudoku;
 }
+
+function showSolutions(){
+    
+    initialSudoku = create2DArray();
+    allPosibilitiesSudoku = initialSudoku;
+    sudokuSolutions = [];
+
+    allPosibilities();
+    solveSudoku(allPosibilities);
+    for (let i=0; i<sudokuSolutions.length; i++)
+        console.log(sudokuSolutions[i]);
+}
+
+let initialSudoku;
+let sudokuSolutions;
+let allPosibilitiesSudoku;
