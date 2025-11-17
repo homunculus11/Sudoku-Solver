@@ -10,7 +10,7 @@ function allPosibilities(){
         let counter = 0;
         for (let i=0; i<=8; i++)
             for (let j=0; j<=8; j++){
-                if (allPosibilitiesSudoku[i][j] !== 0 && !(Array.isArray(allPosibilitiesSudoku[i][j])))
+                if (sudoku3D[i][j] !== 0 && !(Array.isArray(sudoku3D[i][j])))
                     counter++;
             }
         return counter;
@@ -19,213 +19,213 @@ function allPosibilities(){
     function backToZero(){
         for (let i=0; i<=8; i++)
             for (let j=0; j<=8; j++){
-                if (Array.isArray(allPosibilitiesSudoku[i][j]))
-                    allPosibilitiesSudoku[i][j] = 0;
+                if (Array.isArray(sudoku3D[i][j]))
+                    sudoku3D[i][j] = 0;
             }
     }
 
     backToZero();
-    countValuesBefore = countValues();
+    let countValuesBefore = countValues();
 
     for (let i=0; i<=8; i++)
         for (let j=0; j<=8; j++){
 
-            if (allPosibilitiesSudoku[i][j] !== 0)
+            if (sudoku3D[i][j] !== 0)
                 continue;
 
             else{
                 let currentPosiblities = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
                 for (let k=0; k<=8; k++){
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][k]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][k]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[k][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[k][j]);
+                    if (currentPosiblities.includes(sudoku3D[i][k]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][k]);
+                    if (currentPosiblities.includes(sudoku3D[k][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[k][j]);
                 }
 
                 if (i % 3 === 0 && j % 3 === 0){
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j+2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j+2]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j+2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j+2]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+2][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+2][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+2][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+2][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+2][j+2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+2][j+2]);
+                    if (currentPosiblities.includes(sudoku3D[i][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i][j+2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j+2]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j+2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j+2]);
+                    if (currentPosiblities.includes(sudoku3D[i+2][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+2][j]);
+                    if (currentPosiblities.includes(sudoku3D[i+2][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+2][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i+2][j+2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+2][j+2]);
                 }
                 
                 else if (i % 3 === 0 && j % 3 === 1){
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+2][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+2][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+2][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+2][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+2][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+2][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i+2][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+2][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i+2][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+2][j]);
+                    if (currentPosiblities.includes(sudoku3D[i+2][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+2][j+1]);
                 }
 
                 else if (i % 3 === 0 && j % 3 === 2){
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j-2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j-2]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j+2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j+2]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+2][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+2][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+2][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+2][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+2][j+2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+2][j+2]);
+                    if (currentPosiblities.includes(sudoku3D[i][j-2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j-2]);
+                    if (currentPosiblities.includes(sudoku3D[i][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j-2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j-2]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j]);
+                    if (currentPosiblities.includes(sudoku3D[i+2][j-2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+2][j-2]);
+                    if (currentPosiblities.includes(sudoku3D[i+2][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+2][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i+2][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+2][j]);
                 }
 
                 else if (i % 3 === 1 && j % 3 === 0){
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j+2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j+2]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j+2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j+2]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j+2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j+2]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j+2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j+2]);
+                    if (currentPosiblities.includes(sudoku3D[i][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i][j+2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j+2]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j+2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j+2]);
                 }
 
                 else if (i % 3 === 1 && j % 3 === 1){
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j+1]);
                 }
 
                 else if (i % 3 === 1 && j % 3 === 2){
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j-2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j-2]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j-2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j-2]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j-2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j-2]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i+1][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i+1][j]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j-2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j-2]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j]);
+                    if (currentPosiblities.includes(sudoku3D[i][j-2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j-2]);
+                    if (currentPosiblities.includes(sudoku3D[i][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j-2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j-2]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i+1][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i+1][j]);
                 }
                 
                 else if (i % 3 === 2 && j % 3 === 0){
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-2][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-2][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-2][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-2][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-2][j+2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-2][j+2]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j+2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j+2]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j+2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j+2]);
+                    if (currentPosiblities.includes(sudoku3D[i-2][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-2][j]);
+                    if (currentPosiblities.includes(sudoku3D[i-2][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-2][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i-2][j+2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-2][j+2]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j+2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j+2]);
+                    if (currentPosiblities.includes(sudoku3D[i][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i][j+2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j+2]);
                 }
 
                 else if (i % 3 === 2 && j % 3 === 1){
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-2][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-2][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-2][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-2][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-2][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-2][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j+1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j+1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i-2][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-2][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i-2][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-2][j]);
+                    if (currentPosiblities.includes(sudoku3D[i-2][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-2][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j+1]);
+                    if (currentPosiblities.includes(sudoku3D[i][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i][j+1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j+1]);
                 }
 
                 else if (i % 3 === 2 && j % 3 === 2){
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-2][j-2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-2][j-2]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-2][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-2][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-2][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-2][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j-2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j-2]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j-1]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i-1][j]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i-1][j]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j-2]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j-2]);
-                    if (currentPosiblities.includes(allPosibilitiesSudoku[i][j-1]))
-                        currentPosiblities = currentPosiblities.filter(x => x !== allPosibilitiesSudoku[i][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i-2][j-2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-2][j-2]);
+                    if (currentPosiblities.includes(sudoku3D[i-2][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-2][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i-2][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-2][j]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j-2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j-2]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j-1]);
+                    if (currentPosiblities.includes(sudoku3D[i-1][j]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i-1][j]);
+                    if (currentPosiblities.includes(sudoku3D[i][j-2]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j-2]);
+                    if (currentPosiblities.includes(sudoku3D[i][j-1]))
+                        currentPosiblities = currentPosiblities.filter(x => x !== sudoku3D[i][j-1]);
                 }
 
                 if (currentPosiblities.length === 1)
-                    allPosibilitiesSudoku[i][j] = currentPosiblities[0];
-                else if (currentPosiblities === 0)
+                    sudoku3D[i][j] = currentPosiblities[0];
+                else if (currentPosiblities.length === 0)
                     errorMessage("unsolvableInput");
                 else
-                    allPosibilitiesSudoku[i][j] = currentPosiblities;
+                    sudoku3D[i][j] = currentPosiblities;
             }
 
         }
-    countValuesAfter = countValues();
+    let countValuesAfter = countValues();
 
-    if (countValuesBefore === countValuesAfter)
+    if (countValuesBefore !== countValuesAfter)
         allPosibilities();
 }
 
@@ -234,7 +234,7 @@ function checkValidance(sudoku){
     for(let i=0; i<=8; i++)
         for(let j=0; j<=7; j++)
             for(let k=j+1; k<=8; k++)
-                if ((sudoku[i][j] === sudoku[i][k] && sudoku[i][j] !== 0 && !(Array.isArray(sudoku[i][j])) || (sudoku[j][i] === sudoku[k][i] && sudoku !== 0 && !(Array.isArray(sudoku[j][i])))))
+                if ((sudoku[i][j] === sudoku[i][k] && sudoku[i][j] !== 0 && !(Array.isArray(sudoku[i][j]))) || (sudoku[j][i] === sudoku[k][i] && sudoku[j][i] !== 0 && !(Array.isArray(sudoku[j][i]))))
                     return false;
 
     for(let i=0; i<=6; i+=3)
@@ -245,23 +245,23 @@ function checkValidance(sudoku){
         if (sudoku[i][j] !== 0 && !(Array.isArray(sudoku[i][j])))
             currentValues.push(sudoku[i][j]);
         if (sudoku[i][j+1] !== 0 && !(Array.isArray(sudoku[i][j+1])))
-            currentValues.push(sudoku[i][j]);
+            currentValues.push(sudoku[i][j+1]);
         if (sudoku[i][j+2] !== 0 && !(Array.isArray(sudoku[i][j+2])))
-            currentValues.push(sudoku[i][j]);
+            currentValues.push(sudoku[i][j+2]);
         if (sudoku[i+1][j] !== 0 && !(Array.isArray(sudoku[i+1][j])))
-            currentValues.push(sudoku[i][j]);
+            currentValues.push(sudoku[i+1][j]);
         if (sudoku[i+1][j+1] !== 0 && !(Array.isArray(sudoku[i+1][j+1])))
-            currentValues.push(sudoku[i][j]);
+            currentValues.push(sudoku[i+1][j+1]);
         if (sudoku[i+1][j+2] !== 0 && !(Array.isArray(sudoku[i+1][j+2])))
-            currentValues.push(sudoku[i][j]);
+            currentValues.push(sudoku[i+1][j+2]);
         if (sudoku[i+2][j] !== 0 && !(Array.isArray(sudoku[i+2][j])))
-            currentValues.push(sudoku[i][j]);
+            currentValues.push(sudoku[i+2][j]);
         if (sudoku[i+2][j+1] !== 0 && !(Array.isArray(sudoku[i+2][j+1])))
-            currentValues.push(sudoku[i][j]);
+            currentValues.push(sudoku[i+2][j+1]);
         if (sudoku[i+2][j+2] !== 0 && !(Array.isArray(sudoku[i+2][j+2])))
-            currentValues.push(sudoku[i][j]);
+            currentValues.push(sudoku[i+2][j+2]);
         
-        if (Set(currentValues).size !== currentValues.length)
+        if (new Set(currentValues).size !== currentValues.length)
             return false;
         }
     return true;
@@ -270,12 +270,11 @@ function checkValidance(sudoku){
 function solveSudoku(sudoku, indexI=0, indexJ=0){
     
     function checkCompletance(sudokuParameter){
-        for (let i=0; i<=8; i++){
+        for (let i=0; i<=8; i++)
             for (let j=0; j<=8; j++)
                 if (sudokuParameter[i][j] === 0)
                     return false;
-            return true;
-        }
+        return true;    
     }
 
     if (indexI === 9){
@@ -284,10 +283,10 @@ function solveSudoku(sudoku, indexI=0, indexJ=0){
         return
     }
 
-    nextI = (indexI + 1) ? (index === 8) : indexI;
-    nextJ = 0 ? (indexJ === 8) : (indexJ + 1);
+    let nextI = (indexJ === 8) ? (indexI + 1) : indexI;
+    let nextJ = (indexJ === 8) ? 0 : (indexJ + 1);
 
-    if (!(Array.isArray(sudoku[i][j])))
+    if (!(Array.isArray(sudoku[indexI][indexJ])))
         return solveSudoku(sudoku, nextI, nextJ);
 
     originalValues = sudoku[indexI][indexJ];
@@ -319,15 +318,17 @@ function create2DArray(){
 function showSolutions(){
     
     initialSudoku = create2DArray();
-    allPosibilitiesSudoku = initialSudoku;
+    console.log(initialSudoku);
+    console.log(checkValidance(initialSudoku));
+    sudoku3D = initialSudoku.map(row => [...row]);
     sudokuSolutions = [];
 
     allPosibilities();
-    solveSudoku(allPosibilities);
+    solveSudoku(sudoku3D);
     for (let i=0; i<sudokuSolutions.length; i++)
         console.log(sudokuSolutions[i]);
 }
 
 let initialSudoku;
 let sudokuSolutions;
-let allPosibilitiesSudoku;
+let sudoku3D;
