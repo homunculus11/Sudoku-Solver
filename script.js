@@ -269,6 +269,9 @@ function checkValidance(sudoku){
 
 function solveSudoku(sudoku, indexI=0, indexJ=0){
     
+    if (stopRecursion)
+        return;
+
     function checkCompletance(sudokuParameter){
         for (let i=0; i<=8; i++)
             for (let j=0; j<=8; j++)
@@ -276,6 +279,11 @@ function solveSudoku(sudoku, indexI=0, indexJ=0){
                     return false;
         return true;    
     }
+
+     if (checkCompletance && sudokuSolutions.length >= 10){
+        stopRecursion = true;
+        return;
+     }
 
     if (indexI === 9){
         if (checkValidance(sudoku) && checkCompletance(sudoku))
@@ -332,3 +340,4 @@ function showSolutions(){
 let initialSudoku;
 let sudokuSolutions;
 let sudoku3D;
+let stopRecursion = false;
