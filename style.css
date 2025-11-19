@@ -1,5 +1,5 @@
-/* Change 1: M-am gandit daca poti sa schimbi opacity oleak mai mare la table, ca cifrele de-abia se vad, deamu gandestete tu daca o sa arate mai bine cu opacity mai mare */
-/* Change 2: Change font plsss */
+/* GATA Change 1: M-am gandit daca poti sa schimbi opacity oleak mai mare la table, ca cifrele de-abia se vad, deamu gandestete tu daca o sa arate mai bine cu opacity mai mare */
+/* GATA Change 2: Change font plsss */
 html {
     zoom: reset;
 }
@@ -92,10 +92,10 @@ img {
 
 input {
     font-size: 40px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    opacity: 55%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    opacity: 100%;
     color: white;
-    background: rgba(0, 0, 0, 0.438);
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
