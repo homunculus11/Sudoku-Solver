@@ -1,3 +1,5 @@
+// Go to line 348
+
 function errorMessage(errorParameter){
     if (errorParameter === "unsolvableInput"){
 
@@ -343,7 +345,7 @@ function showSolutions(){
             for(let j=0; j<9; j++){
             document.getElementById("button" + (i*9 + j + 1)).value = currentSudokuSolution[i][j].toString();
             if (currentSudokuSolution[i][j]!==initialSudoku[i][j])
-                document.getElementById("button" + (i*9 + j + 1)).style.color = "#920025ff";
+                document.getElementById("button" + (i*9 + j + 1)).style.color = "#89e2f1ff"; // Change color please, don't change anything else in javascript, delete comment after you are done
             }
         }
     }
