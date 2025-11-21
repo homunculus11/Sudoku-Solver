@@ -356,7 +356,7 @@ let stopRecursion = false;
 
 // Function for reset button -- was not tested out yet
 function resetTable(){
-    for(let i=0; i<=81; i++){
+    for(let i=1; i<=81; i++){
         document.getElementById("button" + i).value = "";
     }
 }
