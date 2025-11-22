@@ -358,5 +358,6 @@ let stopRecursion = false;
 function resetTable(){
     for(let i=1; i<=81; i++){
         document.getElementById("button" + i).value = "";
+        document.getElementById("button" + i).style.color = "#ffffffff"
     }
 }
