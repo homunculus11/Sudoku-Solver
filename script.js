@@ -341,9 +341,9 @@ function showSolutions(){
 
         for(let i=0; i<9; i++){
             for(let j=0; j<9; j++){
-            document.getElementById("button" + (i*9 + j + 1)).value = currentSudokuSolution[i][j].toString();
+            document.getElementById("input" + (i*9 + j + 1)).value = currentSudokuSolution[i][j].toString();
             if (currentSudokuSolution[i][j]!==initialSudoku[i][j])
-                document.getElementById("button" + (i*9 + j + 1)).style.color = "#fffb00ff";
+                document.getElementById("input" + (i*9 + j + 1)).style.color = "#fffb00ff";
             }
         }
     }
@@ -354,10 +354,10 @@ let sudokuSolutions;
 let sudoku3D;
 let stopRecursion = false;
 
-// Function for reset button -- was not tested out yet
+// Function for reset button
 function resetTable(){
     for(let i=1; i<=81; i++){
-        document.getElementById("button" + i).value = "";
-        document.getElementById("button" + i).style.color = "#ffffffff"
+        document.getElementById("input" + i).value = "";
+        document.getElementById("input" + i).style.color = "#ffffffff"
     }
 }

@@ -67,7 +67,7 @@ img {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-#Buttons {
+#Inputs {
     display: grid;
     grid-template-columns: repeat(9, 47px);
     grid-template-rows: repeat(9, 47px);
@@ -116,40 +116,40 @@ input {
 
 /* Dimon eu ti-am schimbat toate id-urile la input ca sa pot face acolo niste functii la script.js, mai scurt is 81 de id-uri amu, un id pentru fiecare input*/
 /* #UpLeft */
-#button1, #button4, #button7, #button28, #button31, #button34, #button55, #button58, #button61{
+#input1, #input4, #input7, #input28, #input31, #input34, #input55, #input58, #input61{
     border-top: 3px solid rgba(255, 255, 255, 1);
     border-left: 3px solid rgba(255, 255, 255, 1);
 }
 /* #UpRight */
-#button3, #button6, #button9, #button30, #button33, #button36, #button57,
-#button60, #button63{
+#input3, #input6, #input9, #input30, #input33, #input36, #input57,
+#input60, #input63{
     border-top: 3px solid rgba(255, 255, 255, 1);
     border-right: 3px solid rgba(255, 255, 255, 1);
 }
 /* #DownLeft */
-#button19, #button22, #button25, #button46, #button49, #button52, #button73,#button76, #button79{
+#input19, #input22, #input25, #input46, #input49, #input52, #input73,#input76, #input79{
     border-bottom: 3px solid rgba(255, 255, 255, 1);
     border-left: 3px solid rgba(255, 255, 255, 1);
 }
 /* #DownRight */
-#button21, #button24, #button27, #button48, #button51, #button54, #button75, #button78, #button81{
+#input21, #input24, #input27, #input48, #input51, #input54, #input75, #input78, #input81{
     border-bottom: 3px solid rgba(255, 255, 255, 1);
     border-right: 3px solid rgba(255, 255, 255, 1);
 }
 /* #Up */
-#button2, #button5, #button8, #button29, #button32, #button35, #button56, #button59, #button62{
+#input2, #input5, #input8, #input29, #input32, #input35, #input56, #input59, #input62{
     border-top: 3px solid rgba(255, 255, 255, 1);
 }
 /* #Down */
-#button20, #button23, #button26, #button47, #button50, #button53, #button74,#button77, #button80{
+#input20, #input23, #input26, #input47, #input50, #input53, #input74,#input77, #input80{
     border-bottom: 3px solid rgba(255, 255, 255, 1);
 }
 /* #Left */
-#button10, #button13, #button16, #button37, #button40, #button43, #button64, #button67, #button70{
+#input10, #input13, #input16, #input37, #input40, #input43, #input64, #input67, #input70{
     border-left: 3px solid rgba(255, 255, 255, 1);
 }
 /* #Right */
-#button12, #button15, #button18, #button39, #button42, #button45, #button66, #button69, #button72{
+#input12, #input15, #input18, #input39, #input42, #input45, #input66, #input69, #input72{
     border-right: 3px solid rgba(255, 255, 255, 1);
 }
 
@@ -331,7 +331,7 @@ input {
     user-select: none;
 }
 
-#ScoreBoard{
+#MainText{
     font-size: 23px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
