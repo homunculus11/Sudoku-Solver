@@ -356,7 +356,7 @@ let sudoku3D;
 let stopRecursion = false;
 
 // Function for reset button, runs only when RESET button is pressed
-function resetTable(){
+function resetTable(typeOfMovement){
     for(let i=1; i<=81; i++){
         document.getElementById("input" + i).value = "";
         document.getElementById("input" + i).style.color = "#ffffffff"

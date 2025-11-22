@@ -18,7 +18,7 @@
 
 
         <div id="Previous">
-            <button id="PreviousButton"><</button>
+            <button onclick="hideshowButtons('previous');" id="PreviousButton"><</button>
         </div>
 
         <div id="MainFrame">
@@ -116,12 +116,12 @@
         </div>
 
         <div id="Next">
-            <button id="NextButton">></button>
+            <button onclick="hideshowButtons('next');" id="NextButton">></button>
         </div>
 
          <div id="Solve">
-            <button onclick="resetTable()" id="ResetButton">RESET</button>
-            <button onclick="showSolutions()" id="SolveButton">SOLVE</button>
+            <button onclick="resetTable();" id="ResetButton">RESET</button>
+            <button onclick="showSolutions();" id="SolveButton">SOLVE</button>
         </div>
 
         <img src="assets/Background.jpg" alt="background">
