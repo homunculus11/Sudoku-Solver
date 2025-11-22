@@ -153,7 +153,7 @@ input {
     border-right: 3px solid rgba(255, 255, 255, 1);
 }
 
-#Score{
+#MainTextLabel{
     display: flex;
     gap: 6px;
     width: 400px;
@@ -183,7 +183,7 @@ input {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(calc(237.5px + 30px), -40px);
+    transform: translate(calc(237.5px + 30px), -25px);
     z-index: 15;
 }
 
@@ -227,7 +227,7 @@ input {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(calc(237.5px - 560px), -40px);
+    transform: translate(calc(237.5px - 560px), -25px);
     z-index: 15;
 }
 
