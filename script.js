@@ -323,6 +323,7 @@ function create2DArray(){
     return returnSudoku;
 }
 
+// Function for solve button, runs only when SOLVE button is pressed
 function showSolutions(){
     
     initialSudoku = create2DArray();
@@ -354,10 +355,17 @@ let sudokuSolutions;
 let sudoku3D;
 let stopRecursion = false;
 
-// Function for reset button
+// Function for reset button, runs only when RESET button is pressed
 function resetTable(){
     for(let i=1; i<=81; i++){
         document.getElementById("input" + i).value = "";
         document.getElementById("input" + i).style.color = "#ffffffff"
+    }
+}
+
+// Function not finished yet, because I don't have buttons to work with yet
+function hideshowButtons(){
+    if (sudokuSolutions.length == 0 || sudokuSolutions.length == 1){
+
     }
 }
